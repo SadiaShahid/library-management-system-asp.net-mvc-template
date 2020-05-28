@@ -1,0 +1,73 @@
+﻿@model List<LibraryManagementSystem.Models.Book>
+       
+
+
+
+    @{
+        ViewBag.Title = "Borrow";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <head>
+        <style>
+            table, td, th {
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th {
+                background-color: #4C2404;
+                color: white;
+            }
+
+            th, td {
+                padding: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <h2>Available Books</h2>
+    <table>
+        <tr>
+            <th>ISBN</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Available</th>
+
+        </tr>
+        @foreach (var h in Model)
+        {
+            // if (h.category == "Urdu")
+            {
+                <tr>
+                    <td>@h.ISBN</td>
+                    <td>@h.B_name</td>
+                    <td>@h.author</td>
+                    <td>@h.status</td>
+                </tr>
+            }
+        }
+
+    </table>
+</body>
+
+
+
+    <br><br>
+    <h2>Borrow Book</h2>
+    <form id="BorrowForm" action="/Home/BorrowDone" method="get">
+        <div>
+            <strong>Name:</strong>
+            <div><input type="text" name="name" class="input" value=""></div>
+        </div>
+        <div>
+            <strong>Book Id:</strong>
+            <div><input type="number" name="b_id" class="input" value="">	</div>
+        </div>
+        <input type="submit" value="Borrow">
+
+    </form>

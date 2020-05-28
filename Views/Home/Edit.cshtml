@@ -1,0 +1,46 @@
+﻿@model LibraryManagementSystem.Models.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Book Information</h2>
+
+<form id="AddForm" action="/Home/EditDone/@Model.ISBN" method="get">
+    <div>
+        <strong>Title:</strong>
+        <div><input type="text" name="bname" class="input" value="@Model.B_name"></div>
+    </div>
+    <div>
+        <strong>Author:</strong>
+        <div><input type="text" name="author" class="input" value="@Model.author">	</div>
+    </div>
+    <div>
+        <strong>Category:</strong>
+        <div>
+            <select name="category">
+                <option value="@Model.category">@Model.category</option>
+                <option value="History">History</option>
+                <option value="English">English</option>
+                <option value="Science">Science</option>
+                <option value="Islamic">Islamic</option>
+                <option value="Technology">Technology</option>
+                <option value="Programming">Programming</option>
+                <option value="Literature">Literature</option>
+                <option value="Urdu">Urdu</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <strong>Status:</strong>
+        <div>
+            <select name="status">
+                <option value="@Model.status">@Model.status</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+    </div>
+    <input type="submit" value="Update">
+
+</form>

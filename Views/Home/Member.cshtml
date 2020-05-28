@@ -1,0 +1,55 @@
+﻿@model List<LibraryManagementSystem.Models.Member>
+@{
+    ViewBag.Title = "Member";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: #4C2404;
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Borrowers </h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Book id</th>
+            <th>Book Name</th>
+            <th>Deposit</th>
+
+        </tr>
+        @foreach (var h in Model)
+        {
+            // if (h.category == "Urdu")
+            {
+                <tr>
+                    <td>@h.M_name</td>
+                    <td>@h.B_id</td>
+                    <td>@h.Book.B_name</td>
+                    <td>
+                        <a href="/Home/Deposit/@h.M_id">Deposit</a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</body>
+

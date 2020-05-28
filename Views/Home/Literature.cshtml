@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<LibraryManagementSystem.Models.Book>
+
+<head>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: #4C2404;
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Literature</h2>
+    <table>
+        <tr>
+            <th>ISBN</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Available</th>
+            <th>Edit / Delete</th>
+        </tr>
+        @foreach (var h in Model)
+        {
+           // if (h.category == "Literature")
+            {
+                <tr>
+                    <td>@h.ISBN</td>
+                    <td>@h.B_name</td>
+                    <td>@h.author</td>
+                    <td>@h.status</td>
+                    <td>
+                        <a href="/Home/Edit/@h.ISBN">Edit</a>
+                        <a href="/Home/Delete/@h.ISBN">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</body>

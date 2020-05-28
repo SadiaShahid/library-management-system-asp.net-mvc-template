@@ -1,0 +1,43 @@
+﻿@model LibraryManagementSystem.Models.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Book</h2>
+
+<form id="AddForm" action="/Home/AddDone" method="post" >
+    <div >
+        <strong>Title:</strong>
+        <div><input type="text" name="bname" class="input" ></div>
+    </div>
+    <div>
+        <strong>Author:</strong>
+        <div><input type="text" name="author" class="input" >	</div>
+    </div>
+    <div>
+        <strong>Category:</strong>
+        <div>
+            <select name="category">
+                <option value="History">History</option>
+                <option value="English">English</option>
+                <option value="Science">Science</option>
+                <option value="Islamic">Islamic</option>
+                <option value="Technology">Technology</option>
+                <option value="Programming">Programming</option>
+                <option value="Literature">Literature</option>
+                <option value="Urdu">Urdu</option>
+</select>
+        	</div>
+    </div>
+    <div>
+        <strong>Status:</strong>
+        <div>
+        <select name="status">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+</select>	</div>
+    </div>
+    <input type="submit" value="Add">
+    <a href="/Home/Index" class="button"><span><span>Back To Home</span></span></a>
+
+</form>
